@@ -1,5 +1,6 @@
 package net.jcom.jchess.client;
 
+import net.jcom.jchess.client.ai.FoolsMateAi;
 import net.jcom.jchess.client.ai.RandomAi;
 import net.jcom.jchess.server.logging.Logger;
 import net.jcom.jchess.server.logging.LoggerBuilder;
@@ -74,7 +75,7 @@ public class StartClient
             return;
         }
 
-        int exitCode = new Client(new RandomAi(), new RandomAi(), toServer).run();
+        int exitCode = new Client(new FoolsMateAi(), new RandomAi(), toServer).run();
         System.exit(exitCode);
     }
 }
