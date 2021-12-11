@@ -96,6 +96,7 @@ public class Client {
                     case GAME_START:
                         break;
                     case GAME_OVER:
+                        logger.info(reply.getGameOver().getPgn());
                         break;
                     case AWAIT_MOVE:
                         this.moveStart = System.currentTimeMillis();
@@ -176,19 +177,12 @@ public class Client {
     private void handleAccept(JChessMessage reply) {
         AcceptMessage acceptMessageData = reply.getAccept();
         switch (acceptMessageData.getErrorTypeCode()) {
-            case AWAIT_MOVE:
-                break;
             case NO_ERROR:
-                break;
             case ERROR:
-                break;
             case AWAIT_LOGIN:
-                break;
-            case ILLEGAL_MOVE:
-                break;
-            case TIMEOUT:
-                break;
+            case UNSUPPORTED_OPERATION:
             case TOO_MANY_TRIES:
+            case TIMEOUT:
                 break;
             case DUPLICATE_NAME:
                 StartClient.PLAYER_NAME = StartClient.PLAYER_NAME + UUID.randomUUID();
