@@ -1,6 +1,5 @@
 package net.jcom.jchess.client;
 
-import net.jcom.jchess.client.ai.FoolsMateAi;
 import net.jcom.jchess.client.ai.RandomAi;
 import net.jcom.jchess.server.logging.Logger;
 import net.jcom.jchess.server.logging.LoggerBuilder;
@@ -12,10 +11,8 @@ import java.text.SimpleDateFormat;
 
 /**
  * Hello world!
- *
  */
-public class StartClient
-{
+public class StartClient {
     public static final Logger logger = LoggerBuilder.init().format(new SimpleDateFormat("dd.MM.yyyy HH:mm:ss"))
             .addWriteStream(System.out, System.err).minimumLevel(Logger.LoggingLevel.DEBUG).build();
     public static final int MAX_MOVE_TIME_MS = 60_000;
@@ -75,7 +72,7 @@ public class StartClient
             return;
         }
 
-        int exitCode = new Client(new FoolsMateAi(), new RandomAi(), toServer).run();
+        int exitCode = new Client(new RandomAi(), new RandomAi(), toServer).run();
         System.exit(exitCode);
     }
 }

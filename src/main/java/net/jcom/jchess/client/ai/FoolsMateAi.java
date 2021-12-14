@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class FoolsMateAi extends BaseAi {
-    private HashMap<Color, List<MoveData>> moveMap = new HashMap<>() {{
+    private final HashMap<Color, List<MoveData>> moveMap = new HashMap<>() {{
         put(Color.WHITE, List.of(new MoveData() {{
             setFrom("f2");
             setTo("f3");
