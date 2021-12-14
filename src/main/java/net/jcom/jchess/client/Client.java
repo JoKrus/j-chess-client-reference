@@ -17,8 +17,8 @@ import static net.jcom.jchess.client.StartClient.logger;
 public class Client {
     private static final int EMERGENCY_SWITCH_PCT = 90;
 
-    private BaseAi mainAi;
-    private BaseAi backUpAi;
+    private final BaseAi mainAi;
+    private final BaseAi backUpAi;
     private UUID id;
     private long moveStart;
     private boolean run = true;
