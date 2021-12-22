@@ -28,7 +28,6 @@ public class FoolsMateAi extends BaseAi {
     }};
 
     @Override
-
     public MoveData makeMove(AwaitMoveMessage awaitMoveMessage) {
         var pos = new Position(awaitMoveMessage.getPosition());
         return moveMap.get(pos.getCurrent()).get(pos.getRound() - 1);

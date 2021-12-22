@@ -34,6 +34,12 @@
     </dependency>
 
     <dependency>
+      <groupId>com.github.jokrus</groupId>
+      <artifactId>j-chess-java-xsd</artifactId>
+      <version>master-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
       <groupId>org.glassfish.jaxb</groupId>
       <artifactId>jaxb-runtime</artifactId>
       <version>2.3.5</version>
