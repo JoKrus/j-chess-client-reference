@@ -1,6 +1,7 @@
 package net.jcom.jchess.client;
 
 import net.jcom.jchess.client.ai.BaseAi;
+import net.jcom.jchess.server.exception.InvalidSchemaVersion;
 import net.jcom.jchess.server.factory.JChessMessageFactory;
 import net.jcom.jchess.server.generated.*;
 import net.jcom.jchess.server.iostreams.JChessInputStream;
@@ -63,6 +64,9 @@ public class Client {
             }
         } catch (IOException e) {
             logger.error(e.getLocalizedMessage(), e);
+        } catch (InvalidSchemaVersion e) {
+            logger.fatal("version does not match with server", e);
+            System.exit(1);
         }
     }
 
@@ -117,6 +121,10 @@ public class Client {
                 exitCode = 1;
             } catch (IOException e) {
                 logger.fatal("Client will shut down", e);
+                this.run = false;
+                exitCode = 1;
+            } catch (InvalidSchemaVersion e) {
+                logger.fatal("version does not match with server", e);
                 this.run = false;
                 exitCode = 1;
             }
